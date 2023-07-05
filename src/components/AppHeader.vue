@@ -3,13 +3,9 @@
 </script>
 
 <template>
-    <div>
+    <div class="d-flex justify-content-between">
         <h1 class="text-danger">BoolFlix</h1>
-        <select name="" id="">
-            <option value="">option1</option>
-            <option value="">option2</option>
-            <option value="">option3</option>
-        </select>
+        <input type="text">
     </div>
 </template>
 
