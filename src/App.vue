@@ -15,20 +15,30 @@ export default{
     methods:{
         getMovies(url){
             axios.get(url).then((res)=>{
-                 const apiMovies=res.data.results;
-                 store.movies=apiMovies.map(movie=>{
+                const apiMovies=res.data.results;
+                store.movies=apiMovies.map(movie=>{
                      const {title,original_title,original_language,vote_average}=movie;
                      return{title, original_title, original_language, vote_average};
-            })  
-             })
+                });
+            });
+        },
+        getTvSeries(url){
+            axios.get(url).then((res)=>{
+                const apiTvSeries=res.data.results;
+                store.tvSeries=apiTvSeries.map(tv=>{
+                    const {original_language,original_name,name,vote_average}=tv;
+                    return{original_language,original_name,name,vote_average}
+                })                
+            })
         },
         onChangeTerm(term){
             this.nameFilter=term;
         },
         searchMovies(){
             const filterEndpoint=`${movieEndpoint}&query=${this.nameFilter}`
+            const tvSeriesEndpoint=`${tvEndpoint}&query=${this.nameFilter}`
             this.getMovies(filterEndpoint);
-            console.log(filterEndpoint)
+            this.getTvSeries(tvSeriesEndpoint)
         }
     }
   
