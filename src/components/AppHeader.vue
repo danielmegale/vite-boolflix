@@ -3,11 +3,14 @@
 </script>
 
 <template>
-    <select name="" id="">
-        <option value="">option1</option>
-        <option value="">option3</option>
-        <option value="">option2</option>
-    </select>
+    <div>
+        <h1 class="text-danger">BoolFlix</h1>
+        <select name="" id="">
+            <option value="">option1</option>
+            <option value="">option2</option>
+            <option value="">option3</option>
+        </select>
+    </div>
 </template>
 
 <style>
