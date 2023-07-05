@@ -5,7 +5,10 @@
 <template>
     <div class="d-flex justify-content-between">
         <h1 class="text-danger">BoolFlix</h1>
-        <input type="text">
+        <form action="">
+            <input type="text">
+            <button>Seach</button>
+        </form>
     </div>
 </template>
 

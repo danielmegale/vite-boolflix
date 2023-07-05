@@ -11,13 +11,18 @@ export default{
     },
     data(){
       return{
+        store,
       }
     },
     methods:{
         getMovies(){
-            axios.get(`${movieEndpoint}&query=signore`).then((res)=>{
-                store.movies=res.data.results;
-                console.log(store.movies)
+            axios.get(`${movieEndpoint}&query=lord`).then((res)=>{
+                const apiMovies=res.data.results;
+                store.movies=apiMovies.map(movie=>{
+                    const {title,original_title,original_language,vote_average}=movie;
+                    return{title, original_title, original_language, vote_average};
+                })
+                
             })
         }
     }
@@ -27,7 +32,7 @@ export default{
 
 <template>
     <AppHeader/>
-    <AppMain/>
+    <AppMain :store="store"/>
 </template>
 
 <style>
