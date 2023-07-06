@@ -41,7 +41,7 @@ export default {
                 <li>
                     <img v-if="getImgLanguage(movie.original_language)" :src="getImgLanguage(movie.original_language)"
                         :alt="movie.original_language">
-                    <span v-else>{{ movie.original_language }}</span>
+                    <span v-else>{{ (movie.original_language) }}</span>
                 </li>
                 <li>
                     <i v-for="star of getRating(movie.vote_average)" class="fa-solid fa-star"></i>
@@ -50,7 +50,10 @@ export default {
             </ul>
             <h1>Tv Series</h1>
             <ul v-for="tv in store.tvSeries" class="list-unstyled col-3">
-                <img :src="`https://image.tmdb.org/t/p/w342${tv.poster_path}`" alt="">
+                <img v-if="tv.poster_path" :src="`https://image.tmdb.org/t/p/w342${tv.poster_path}`" alt="">
+                <img v-else
+                    src="https://w7.pngwing.com/pngs/280/326/png-transparent-logo-netflix-logos-and-brands-icon-thumbnail.png"
+                    alt="">
                 <li>{{ tv.original_name }}</li>
                 <li>
                     <img v-if="getImgLanguage(tv.original_language)" :src="getImgLanguage(tv.original_language)"
@@ -67,5 +70,3 @@ export default {
 </template>
 
 <style></style>
-<!-- <li><i class="fa-solid fa-star"></i></li>
-    <i class="fa-regular fa-star"></i> -->
