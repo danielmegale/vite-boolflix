@@ -45,8 +45,12 @@ export default {
 </script>
 
 <template>
-    <AppHeader @change-term="onChangeTerm" @form-submit="searchMovies" />
-    <AppMain />
+    <header class="bg-black">
+        <AppHeader @change-term="onChangeTerm" @form-submit="searchMovies" />
+    </header>
+    <main class="bg-black">
+        <AppMain />
+    </main>
 </template>
 
 <style></style>
